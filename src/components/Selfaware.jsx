@@ -18,10 +18,10 @@ const getRandomPosition = (wrapperWidth, wrapperHeight, size) => {
 
   while (positions.size < numBoxes) {
     const left = getRandomCoordinate(numColumns);
-    let top = getRandomCoordinate(numRows);
-    const adjustedTop = remainingSpace > 0 ? top + remainingSpace : top;
+    const top = getRandomCoordinate(numRows);
+    let adjustedTop = remainingSpace > 0 ? top + remainingSpace : top;
     let adjustedLeft = remainingSpaceX > 0 ? left + remainingSpaceX : left;
-
+ 
     positions.add(`${adjustedLeft},${adjustedTop}`);
   }
 
@@ -93,7 +93,7 @@ const Selfaware = () => {
       .slice(0, letters.length)
       .map((position, index) => ({
         ...position,
-        rotation: Math.random() * 360, 
+        rotation: Math.random() * 40 - 20,
         opacity: 1,
       }));
 
@@ -119,16 +119,15 @@ const Selfaware = () => {
       tl.fromTo(
         circle,
         {
-          width: "200rem",
-          height: "200rem",
-          scale: 1,
-          borderRadius: "100%",
-          duration: 1.5,
+          scale: 0.1,
+          width: "10px",
+          height: "10px",
         },
         {
-          scale: 20,
-          borderRadius: "50%",
-          duration: 1,
+          scale: 10,
+          duration: 2,
+          width: "1000px",
+          height: "1000px",
           onComplete: () => {
             tl.invalidate();
           },
@@ -232,7 +231,7 @@ const Selfaware = () => {
           }}
           ref={cloneRef}
           onClick={handleClick}>
-          <span   style={{ transform: `rotate(${position.rotation}deg)` }}>
+          <span style={{ transform: `rotate(${position.rotation}deg)` }}>
             <svg
               width={svgWidth}
               height={svgWidth}
