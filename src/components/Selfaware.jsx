@@ -125,7 +125,7 @@ const Selfaware = () => {
         },
         {
           scale: 10,
-          duration: 2,
+          duration: 1.5,
           width: "1000px",
           height: "1000px",
           onComplete: () => {

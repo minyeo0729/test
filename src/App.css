@@ -9,7 +9,9 @@ body { margin: 0; padding: 0; box-sizing: border-box; overflow: hidden;height: 1
 .wrap { width: 100%; margin: 0 auto; padding: 100rem 0; } 
 .wrapper { background: var(--pink); height: calc(100vh - 200rem);  border-radius: 20px; overflow: hidden; position: relative; padding: 20rem; z-index: 9; mix-blend-mode: darken;} 
 
-.clone { --color:''; border-radius: 50%; position: absolute; z-index: 1; cursor: pointer;  color: var(--red); transition: all .6s  cubic-bezier(0.85, 0, 0.15, 1); will-change: transform; line-height: 0; pointer-events: none; } 
+.title {font-size: 30rem;} /* 서비스임 */
+
+.clone { --color:''; border-radius: 50%; position: absolute; z-index: 1; cursor: pointer;  color: var(--red); transition: all .6s  cubic-bezier(0.85, 0, 0.15, 1); pointer-events: none; } 
 .clone.shake{pointer-events: auto;}
 .clone span { display: inline-block; } 
 
