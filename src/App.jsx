@@ -3,9 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import Selfaware from "./components/Selfaware";
 import { gsap } from "gsap";
 import "./App.css";
-import { motion, useAnimate, stagger } from "framer-motion";
+import { useAnimate } from "framer-motion";
 function App() {
-  const [count, setCount] = useState(0);
   const overlayRef = useRef(null);
   const textRef = useRef(null);
   const motionRef = useRef(null);
@@ -17,45 +16,27 @@ function App() {
     const motionElement = motionRef.current;
     const bottom = motionElement.getBoundingClientRect().bottom;
     const left = motionElement.getBoundingClientRect().left;
+    const top = motionElement.getBoundingClientRect().top + 20;
     const sequence = [
-      [text, { opacity: 0  }, { at: 0.5, }],
-      [overlay, { clipPath: `inset(100rem ${left}rem ${bottom}rem ${left}rem)`  }, { at: 0.8, duration: 1}],
-      [overlay, { opacity: 0 }, { at: 1.7 }]
+      [motionElement, { opacity: 0, visibility: 'hidden'}, { at: 0 }],
+      [overlay, { clipPath: `inset(${top}rem ${left}rem ${bottom}rem ${left}rem)`  }, { at: 0.8}],
+      [motionElement, { opacity: 1,  visibility: 'visible' }, { at: 0.7 }],
+      [overlay, { opacity: 0 }, { at: 2 }],
     ];
 
-    animate(sequence, { duration:1 });
-
+    animate(sequence, { duration:2 });
   });
 
   return (
     <>
       <div className="super-container">
         <div className="wrap">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-            }}
-            transition={{ duration: 1 }}>
             <div ref={motionRef}>
               <Selfaware />
             </div>
-          </motion.div>
-
-          <h1>Vite + React</h1>
-          <div className="card">
-            <button onClick={() => setCount((count) => count + 1)}>
-              count is {count}
-            </button>
-            <p>
-              Edit <code>src/App.jsx</code> and save to test HMR
-            </p>
-          </div>
-          <p className="read-the-docs">
-            Click on the Vite and React logos to learn more
-          </p>
         </div>
       </div>
+
       <div ref={scope}>
         <div className="overlay" ref={overlayRef}>
           <div className="overlay-inner">
