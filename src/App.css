@@ -32,3 +32,4 @@ svg path { fill: var(--red);}
  @supports (-webkit-touch-callout: none) { 
     html, body { height: -webkit-fill-available;}
   }
+

@@ -5,7 +5,6 @@ import { gsap } from "gsap";
 import "./App.css";
 import { useAnimate, motion } from "framer-motion";
 import splitType from "https://cdn.skypack.dev/split-type@0.3.3";
-
 function App() {
   const overlayRef = useRef(null);
   const textRef = useRef(null);
@@ -77,6 +76,7 @@ function App() {
           </div>
         </div>
       </div>
+ 
     </>
   );
 }
